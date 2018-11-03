@@ -3,4 +3,6 @@ A* pathfinding algorithm
 
 Have pygame installed
 
-run GUI.py
+Run GUI.py
+
+Left click to put obstacles, hit return to calculate the shortest path.
