@@ -21,18 +21,38 @@ class Field:
                 ny = y
                 ss = str(nx) + '_' + str(ny)
                 self.field[s].neighbours.append(ss)
+                if y > 0:
+                    nx = x - 1
+                    ny = y - 1
+                    ss = str(nx) + '_' + str(ny)
+                    self.field[s].neighbours.append(ss)
             if x < self.size - 1:
                 nx = x + 1
                 ny = y
                 ss = str(nx) + '_' + str(ny)
                 self.field[s].neighbours.append(ss)
+                if y < self.size - 1:
+                    nx = x + 1
+                    ny = y + 1
+                    ss = str(nx) + '_' + str(ny)
+                    self.field[s].neighbours.append(ss)
             if y > 0:
                 nx = x
                 ny = y - 1
                 ss = str(nx) + '_' + str(ny)
                 self.field[s].neighbours.append(ss)
+                if x < self.size - 1:
+                    nx = x + 1
+                    ny = y - 1
+                    ss = str(nx) + '_' + str(ny)
+                    self.field[s].neighbours.append(ss)
             if y < self.size - 1:
                 nx = x
                 ny = y + 1
                 ss = str(nx) + '_' + str(ny)
                 self.field[s].neighbours.append(ss)
+                if x > 0:
+                    nx = x - 1
+                    ny = y + 1
+                    ss = str(nx) + '_' + str(ny)
+                    self.field[s].neighbours.append(ss)

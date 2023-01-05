@@ -18,7 +18,6 @@ class Node:
         s += 'neighbours:' + str(self.neighbours) + ' '
         return s
 def Astar(nodes,startnodename,endnodename,distance_local,distance_global):
-    print('astar')
     for s in nodes:
         nodes[s].distance_local = infinity
         nodes[s].distance_global = infinity

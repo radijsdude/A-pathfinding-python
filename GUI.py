@@ -11,13 +11,13 @@ fontscale = 15
 myfont1 = pygame.font.SysFont('Comic Sans MS', fontscale)
 
 wit = (255, 255, 255)
-zwart = (0, 0, 0)
-rood = (255, 0, 0)
-groen = (0, 255, 0)
-blauw = (0, 0, 255)
+zwart = (50, 50, 50)
+rood = (255, 100, 100)
+groen = (100, 255, 100)
+blauw = (100, 100, 255)
 geel = (255, 255, 0)
 oranje = (255, 160, 0)
-grijs = (190, 200, 200)
+grijs = (220, 220, 220)
 cyanide = (0, 250, 250)
 paars = (250, 0, 250)
 
@@ -41,6 +41,7 @@ class game_lus():
         self.endnode = '{}_{}'.format(str(int(self.size-1)),str(int(self.size/2)))
         self.path = []
 
+        self.path = Astar(self.field.field,self.startnode,self.endnode,Distance_Cartesian,Distance_Cartesian)
 
     def get_position(self,x,y):
         rx = int((x - padding_right)/(2*self.scale))
@@ -62,13 +63,14 @@ class game_lus():
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_RETURN:
                         os.system('cls')
-                        self.path = Astar(self.field.field,self.startnode,self.endnode,Distance_Cartesian,Distance_Cartesian)
                     if event.key == pygame.K_ESCAPE:
                         pygame.quit()
                         quit()
 
                 buttons = pygame.mouse.get_pressed()
                 if buttons[0] == 1:
+                
+                    self.path = Astar(self.field.field,self.startnode,self.endnode,Distance_Cartesian,Distance_Cartesian)
                     mx,my = pygame.mouse.get_pos()
                     s = self.get_position(mx,my)
                     if s in self.field.field and s != currentsquare:
@@ -108,7 +110,7 @@ class game_lus():
                     kleur = zwart
                 if s == self.endnode:
                     kleur = rood
-                rect = [x * 2 * self.scale + padding_right, y * 2 * self.scale + padding_up, self.scale,self.scale]
+                rect = [x * 2 * self.scale + padding_right, y * 2 * self.scale + padding_up, 2*self.scale,2*self.scale]
                 pygame.draw.rect(self.display,kleur,rect)
                 pygame.draw.rect(self.display,zwart,rect,1)
 
