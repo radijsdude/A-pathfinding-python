@@ -1,5 +1,4 @@
-# Astar-pathfinding-python
-A* pathfinding algorithm
+pathfinding-python
 
 Have pygame installed
 
